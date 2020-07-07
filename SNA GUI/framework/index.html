@@ -1,0 +1,128 @@
+
+  <!doctype html>
+  <html lang="en">
+    <head>
+        <link rel="icon" href="icon.ico" type="image/icon type">
+        <title >SNA</title>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+      <!-- Bootstrap CSS -->
+      <link  rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+     
+    </head>
+    <body style="background-image:url('bg6.jpg');">
+        <div class="container" style="padding-top: 50px; padding-bottom: 50px; width: 90%; padding-top: 70px;">
+            <section id="content" style="width: 40%; background-image:url('bg6.jpg'); " >
+                <form action="">
+                    <h1 style="text-align: center;">SNA</h1>
+                    <div >
+                        <label ><b> Select the file </b> </label> &nbsp;&nbsp;
+                        <input  type="file" id ="myfile" name="myfile"> </input></br>
+                        
+                        
+                        <label ><b> Select the weight type </b> </label> &nbsp;&nbsp;
+                        <input type="radio" name="weight"  id="weight1"value="int" >int</input> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="weight" id="weight2"value="float" >float</input></br> 
+                       
+                        <label > <b>Select the file type</b> </label> &nbsp;&nbsp;
+                        <input type="radio" name="filetype" value="," id="csv"onclick="open_js();">csv</input> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="filetype" value=" " id="space"onclick="open_js();">space</input> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="filetype"value="\t" id="tsv"onclick="open_js();">tsv</input> </br>
+
+                        
+                        
+                    </div>
+                    <div>
+                        <label> <b> Do you want to display graph</b> </label> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="graph"value="yes" id="graph_yes" onclick="pic_js();">yes</input> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="graph"value="no"id="graph_no"onclick="pic_js1();">no</input></br>
+        
+                        
+                        <div id="graph_image">
+                            <!-- <img src="graph.png"> -->
+                        </div>
+                    </div>
+                    <div > 
+                        <label> <b>Select the functions for finding seed nodes</b> </label></br>
+                        <div class="checkbox">
+                        <input type="checkbox" name="degree"value="degree"id="degree">Degree Centrality</input></br>
+                        <input type="checkbox" name="closeness"value="closeness"id="closeness">Closeness Centrality</input></br>
+                        <input type="checkbox" name="betweeness"value="betweeness"id="betweeness">Betweeness Centrality</input></br>
+                        <input style="padding-bottom: 3px;" type="checkbox" name="pagerank"value="pagerank"id="pagerank">Page Rank </input></br>
+                        <input type="button"  name="function_button"onclick="select_function_js();" id="function_button" value="Done"></input></br> 
+                        </div>
+                    </div>
+        
+                    <div>
+                        <details>
+                           <summary>
+                                <label> <b>Top Seed Nodes </b>  </label>
+                            </summary>
+                            <label><b>Enter the value of 'n' for the loaded centrality</b></label>
+                            <input type="number" name="topSeedNodes_value"id="topSeedNodes_value" ></input>
+                            <input type="button" onclick="top_seed_nodes_js();" value="Get Value"></input>
+                            <div id="top" class="card">
+                                
+          
+                          </div>
+            
+                        </details>
+                       
+                    </div>
+                    <div>
+                        <details>
+                           <summary>
+                                <label> <b>  Affected Nodes </b> </label>
+                            </summary>
+                            <label><b>Enter the number of affected nodes </b></label>
+                            <input type="text" name="affected_node"id="affected_node"></input>
+                            <input type="button" onclick="affected_nodes_values_js();" value="Get Value"></input>
+                            <div id="affected"class="card">
+                                
+          
+                          </div>
+                        </details>
+                    </div>
+                    <div>
+                        <details>
+                            <summary>
+                                 <label> <b>Affected Node Percentage </b>  </label>
+                             </summary>
+                             <label><b>Enter the percentage you want to affect</b> </label>
+                             <input type="text" name="affected_percentage"id="affected_percentage"></input>
+                         
+                             <input type="button" onclick="affected_nodes_percentage_js();" value="Get Value" ></input>
+                             <div id="percentage" class="card">
+                            
+        
+                      </div>    
+                    </details>
+                    </div>
+                    
+                </form><!-- form -->
+                <!-- <div class="button">
+                    <a href="#"></a>
+                </div>button -->
+            </section><!-- content -->
+        </div><!-- container -->
+    
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+
+
+    <script src="/eel.js"></script>
+    <script type="text/javascript"src="index.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
+
+  
